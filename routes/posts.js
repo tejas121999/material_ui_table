@@ -26,7 +26,7 @@ router.route('/add').post((req, res) => {
 })
 
 // get by id
-router.route('/:id').get((req, res) => {
+router.route('/detail/:id').get((req, res) => {
     Post.findById(req.params.id)
         .then(posts => res.json(posts))
         .catch(err => res.status(400).json('Error:' + err))
@@ -60,7 +60,7 @@ router.route('/update/:id').put((req, res) => {
 
 
 // delete by id
-router.route('/:id').delete((req, res) => {
+router.route('/delete/:id').delete((req, res) => {
     Post.findByIdAndDelete(req.params.id)
         .then(posts => res.json('user delete' + posts))
         .catch(err => res.status(400).json('Error:' + err))
